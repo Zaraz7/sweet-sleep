@@ -16,6 +16,13 @@
 * Установить мой [termux_python](https://github.com/max-Z7/termux_python)
 * Клонировать sweetsleep.py и радоваться жизни
 
+## TODO
+
+- [ ] Сделать установшик
+- [ ] ~~Улучшить~~ добавить интерфейс
+- [ ] Добавить кастомизацию
+- [ ] Сделать apk версию
+
 ---
 
 ![https://img.shields.io/badge/Status-WIP-red](https://img.shields.io/badge/Status-WIP-red) ![https://img.shields.io/badge/Realese-No-red](https://img.shields.io/badge/Realese-No-red) ![https://img.shields.io/badge/Python-3.8.5-blue](https://img.shields.io/badge/Python-3.8.5-blue)
