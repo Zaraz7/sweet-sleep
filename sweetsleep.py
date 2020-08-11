@@ -1,8 +1,7 @@
-# !WIP! #
 # А еще это написано на гребанном, блять, vim #
 
 from os import system, getppid
-from os.path import basename
+from os.path import basename, abspath
 from time import sleep
 import termux, sys
 
@@ -42,12 +41,18 @@ if len(argv) >= 2:
         print('Использую настройки по умолчанию')
         cdown(getper(30))
     elif  argv[1] == '-h':
-        print(basename(__file__) + \
+        print(argv[0] + \
 ''' [Option]
 
 -h  Выводит это сообщение
 -d  Запустить с настройками по умолчанию (30 мин)
 ''')
+    elif argv[1] == '-s':
+        script = open('/data/data/com.termux/files/usr/bin/sweetsleep', 'w')
+        script.write('#! /bin/bash\npython3 {}'.format(abspath(__file__)))
+        script.close()
+        system('chmod +x /data/data/com.termux/files/usr/bin/./sweetsleep')
+        abspath(__file__)
     else:
         print('Недопустимая опция: попробуй -h, п-пожалуйста.')
 else:
@@ -59,7 +64,7 @@ else:
      #     ..       //   \      •
         .   .      [|
       °             \\\___/
-     ,     ,          ""   .
+     ,     ,     .    ""   .
  .   !\___/!    .         +
      (0 , 0)
      {  ~  }   .    .   + .
@@ -67,15 +72,17 @@ else:
 -----\_____/-_#__#%#### ## #x
 ------"---"------#&###@#@@#x #
     .        \___x ####7#   x  x
-                    \_#####@#####x
+        .         \_#####@#####x
 .          .       @ #   ###-##x
      :                    @  .
             SW╒╒T    .
             SL└└P
 ''')
     while True:
-        sec = timein()
-        break
-
-    cdown(sec)
-
+        com = input('> ')
+        if com == 'exit':
+            break
+        elif com == 'start':
+            cdown(timein())
+        else:
+            print('Я не знаю такой команды(')
